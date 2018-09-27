@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		7CF4C343215CD92400AB96E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C342215CD92400AB96E3 /* AppDelegate.swift */; };
-		7CF4C345215CD92400AB96E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C344215CD92400AB96E3 /* ViewController.swift */; };
+		7CF4C345215CD92400AB96E3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C344215CD92400AB96E3 /* SignUpViewController.swift */; };
 		7CF4C348215CD92400AB96E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF4C346215CD92400AB96E3 /* Main.storyboard */; };
 		7CF4C34A215CD92600AB96E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CF4C349215CD92600AB96E3 /* Assets.xcassets */; };
 		7CF4C34D215CD92600AB96E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF4C34B215CD92600AB96E3 /* LaunchScreen.storyboard */; };
 		7CF4C355215CD9A000AB96E3 /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = 7CF4C354215CD9A000AB96E3 /* PodFile */; };
+		7CF4C358215CE3A700AB96E3 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C357215CE3A700AB96E3 /* SignUpViewModel.swift */; };
+		7CF4C35B215CE3BF00AB96E3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C35A215CE3BF00AB96E3 /* User.swift */; };
 		B856D91AFD0FD089112FBC0A /* Pods_RxDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D32D8BB80D94DE580914F5C /* Pods_RxDemoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,12 +22,14 @@
 		0D32D8BB80D94DE580914F5C /* Pods_RxDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF4C33F215CD92400AB96E3 /* RxDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF4C342215CD92400AB96E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7CF4C344215CD92400AB96E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7CF4C344215CD92400AB96E3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7CF4C347215CD92400AB96E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CF4C349215CD92600AB96E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CF4C34C215CD92600AB96E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CF4C34E215CD92600AB96E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CF4C354215CD9A000AB96E3 /* PodFile */ = {isa = PBXFileReference; lastKnownFileType = text; path = PodFile; sourceTree = "<group>"; };
+		7CF4C357215CE3A700AB96E3 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		7CF4C35A215CE3BF00AB96E3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		87DFDAABD63C09CD13F7F8CC /* Pods-RxDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxDemoApp/Pods-RxDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		B91247757C83C1C47C380CA1 /* Pods-RxDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDemoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxDemoApp/Pods-RxDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,14 +68,32 @@
 		7CF4C341215CD92400AB96E3 /* RxDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				7CF4C359215CE3AC00AB96E3 /* User */,
+				7CF4C356215CE38700AB96E3 /* SignUp */,
 				7CF4C342215CD92400AB96E3 /* AppDelegate.swift */,
-				7CF4C344215CD92400AB96E3 /* ViewController.swift */,
 				7CF4C346215CD92400AB96E3 /* Main.storyboard */,
 				7CF4C349215CD92600AB96E3 /* Assets.xcassets */,
 				7CF4C34B215CD92600AB96E3 /* LaunchScreen.storyboard */,
 				7CF4C34E215CD92600AB96E3 /* Info.plist */,
 			);
 			path = RxDemoApp;
+			sourceTree = "<group>";
+		};
+		7CF4C356215CE38700AB96E3 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				7CF4C344215CD92400AB96E3 /* SignUpViewController.swift */,
+				7CF4C357215CE3A700AB96E3 /* SignUpViewModel.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		7CF4C359215CE3AC00AB96E3 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				7CF4C35A215CE3BF00AB96E3 /* User.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		81FCEF9426CAC74CF2BCB03E /* Frameworks */ = {
@@ -206,7 +228,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CF4C345215CD92400AB96E3 /* ViewController.swift in Sources */,
+				7CF4C35B215CE3BF00AB96E3 /* User.swift in Sources */,
+				7CF4C345215CD92400AB96E3 /* SignUpViewController.swift in Sources */,
+				7CF4C358215CE3A700AB96E3 /* SignUpViewModel.swift in Sources */,
 				7CF4C343215CD92400AB96E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,7 +381,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LWXCT592NE;
 				INFOPLIST_FILE = RxDemoApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "gini-apps.RxDemoApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -373,7 +400,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LWXCT592NE;
 				INFOPLIST_FILE = RxDemoApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "gini-apps.RxDemoApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
