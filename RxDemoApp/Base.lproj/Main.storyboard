@@ -60,6 +60,9 @@
                     <size key="freeformSize" width="375" height="234"/>
                     <connections>
                         <outlet property="buttonSignup" destination="GhU-Dv-1cj" id="r59-Rs-EsA"/>
+                        <outlet property="confirmPasswordField" destination="0d5-TA-hWn" id="JJo-Sa-USu"/>
+                        <outlet property="emailField" destination="tLU-Bm-dg8" id="k3M-Lm-zKs"/>
+                        <outlet property="passwordField" destination="GVb-kM-Ny3" id="D3z-0k-9aL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPk-jZ-qq0" userLabel="First Responder" sceneMemberID="firstResponder"/>

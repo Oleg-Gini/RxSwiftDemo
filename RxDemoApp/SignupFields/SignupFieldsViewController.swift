@@ -7,17 +7,76 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class SignupFieldsViewController: UIViewController
 {
-
+    private var viewModel  = SignupFieldsViewModel()
+    private var disposeBag = DisposeBag()
+    
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var confirmPasswordField: UITextField!
     @IBOutlet weak var buttonSignup: UIButton!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        setupViews()
+        subscribe()
     }
+}
 
+extension SignupFieldsViewController
+{
+    func subscribe()
+    {
+        emailField.rx.text
+            .orEmpty
+            .bind(to: viewModel.email)
+            .disposed(by: disposeBag)
 
+        passwordField.rx.value.asObservable().subscribe(onNext: {[weak self] value in
+            self?.setPassword(value)
+        })
+        .disposed(by: disposeBag)
+
+        confirmPasswordField.rx.value.asObservable().subscribe(onNext: { [weak self] value in
+            self?.setConfirmPassword(value)
+        })
+        .disposed(by: disposeBag)
+        
+        viewModel.isValid
+            .subscribe(onNext: { [weak self] isValid in
+              self?.signupButtonState(enable: isValid)
+        })
+        .disposed(by: disposeBag)
+    }
+}
+
+//MARK: Private Methods
+extension SignupFieldsViewController
+{
+    private func setPassword(_ text: String?)
+    {
+        guard let text = text else { return }
+        viewModel.password.value = text
+    }
+    private func setConfirmPassword(_ text: String?)
+    {
+        guard let text = text else { return }
+        viewModel.confirmPassword.value = text
+    }
+    
+    private func signupButtonState(enable: Bool)
+    {
+        buttonSignup.isEnabled = enable
+    }
+    
+    private func setupViews()
+    {
+        buttonSignup.setTitleColor(viewModel.signupButtonDisabledStateColor, for: .disabled)
+        buttonSignup.setTitleColor(viewModel.signupButtonNormalStateColor, for: .normal)
+    }
 }
