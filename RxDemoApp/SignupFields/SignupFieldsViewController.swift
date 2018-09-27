@@ -48,8 +48,16 @@ extension SignupFieldsViewController
         .disposed(by: disposeBag)
         
         viewModel.isValid
+            .filter({ [weak self] (isValid) -> Bool in
+                
+                guard let strongSelf = self                        else { return false }
+                guard strongSelf.buttonSignup.isEnabled != isValid else { return false }
+                
+                return true
+            })
             .subscribe(onNext: { [weak self] isValid in
-              self?.signupButtonState(enable: isValid)
+                
+                self?.signupButtonState(enable: isValid)
         })
         .disposed(by: disposeBag)
     }

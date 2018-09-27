@@ -27,7 +27,7 @@ struct SignupFieldsViewModel
         isValid = Observable.combineLatest(password.asObservable(),confirmPassword.asObservable(), email.asObservable()) { password, confirmPassword, email in
             
             guard password.count >= 6   else { return false }
-            guard email.isValidEmail()  else { return false }
+            guard email.isValidEmail    else { return false }
             
             return password == confirmPassword
         }
