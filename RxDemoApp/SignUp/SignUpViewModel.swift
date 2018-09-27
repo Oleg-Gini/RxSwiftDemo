@@ -22,7 +22,7 @@ class SignUpViewModel: NSObject
         super.init()
     }
     
-    func connectSignupField(to container: UIView) -> Observable<Void>
+    func connectSignupField(to container: UIView) -> Observable<Bool>
     {
         return Observable.create{ [weak self] observable in
           
@@ -35,7 +35,8 @@ class SignUpViewModel: NSObject
                 strongSelf.signupFields = vc
                 strongSelf.baseViewController.add(vc, container: container)
                 
-                    observable.onNext(())
+                observable.onNext(true)
+                observable.onCompleted()
             })
             .disposed(by: self?.disposeBag ?? DisposeBag())
             

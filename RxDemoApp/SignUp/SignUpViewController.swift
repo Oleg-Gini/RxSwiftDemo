@@ -31,6 +31,10 @@ class SignUpViewController: UIViewController
         
         viewModel.connectSignupField(to: signupFieldsContainer).asObservable().subscribe(onNext: { [weak self] _ in
             self?.subscribeForSignupFieldsViewControllerEvents()
+        }, onCompleted: {
+            print("onCompleted")
+        }, onDisposed: {
+            print("onDisposed")
         })
         .disposed(by: disposeBag)
     }
