@@ -3,5 +3,7 @@ use_frameworks!
 
 pod 'RxSwift'
 pod 'RxCocoa'
+pod 'Alamofire'
+pod 'AlamofireImage'
 
 end

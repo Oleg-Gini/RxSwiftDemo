@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C559678215CFE9600A3363B /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C559677215CFE9600A3363B /* UserProfileViewController.swift */; };
+		7C55967A215CFEB300A3363B /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C559679215CFEB300A3363B /* UserProfileViewModel.swift */; };
+		7C55967C215CFECE00A3363B /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55967B215CFECE00A3363B /* EditProfileViewController.swift */; };
+		7C55967E215CFEE100A3363B /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55967D215CFEE100A3363B /* EditProfileViewModel.swift */; };
+		7C559681215D015000A3363B /* SignupFieldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C559680215D015000A3363B /* SignupFieldsViewController.swift */; };
+		7C559683215D016900A3363B /* SignupFieldsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C559682215D016900A3363B /* SignupFieldsViewModel.swift */; };
+		7C559685215D04F600A3363B /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C559684215D04F600A3363B /* Extentions.swift */; };
+		7C559687215D17F500A3363B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C559686215D17F500A3363B /* Enums.swift */; };
+		7C559689215D209900A3363B /* ViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C559688215D209900A3363B /* ViewControllersFactory.swift */; };
 		7CF4C343215CD92400AB96E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C342215CD92400AB96E3 /* AppDelegate.swift */; };
 		7CF4C345215CD92400AB96E3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C344215CD92400AB96E3 /* SignUpViewController.swift */; };
 		7CF4C348215CD92400AB96E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF4C346215CD92400AB96E3 /* Main.storyboard */; };
@@ -20,6 +29,15 @@
 
 /* Begin PBXFileReference section */
 		0D32D8BB80D94DE580914F5C /* Pods_RxDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C559677215CFE9600A3363B /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		7C559679215CFEB300A3363B /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		7C55967B215CFECE00A3363B /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		7C55967D215CFEE100A3363B /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		7C559680215D015000A3363B /* SignupFieldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFieldsViewController.swift; sourceTree = "<group>"; };
+		7C559682215D016900A3363B /* SignupFieldsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFieldsViewModel.swift; sourceTree = "<group>"; };
+		7C559684215D04F600A3363B /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		7C559686215D17F500A3363B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		7C559688215D209900A3363B /* ViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersFactory.swift; sourceTree = "<group>"; };
 		7CF4C33F215CD92400AB96E3 /* RxDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF4C342215CD92400AB96E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CF4C344215CD92400AB96E3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +64,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C559675215CFE7500A3363B /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				7C559677215CFE9600A3363B /* UserProfileViewController.swift */,
+				7C559679215CFEB300A3363B /* UserProfileViewModel.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		7C559676215CFE8200A3363B /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				7C55967B215CFECE00A3363B /* EditProfileViewController.swift */,
+				7C55967D215CFEE100A3363B /* EditProfileViewModel.swift */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		7C55967F215D013000A3363B /* SignupFields */ = {
+			isa = PBXGroup;
+			children = (
+				7C559680215D015000A3363B /* SignupFieldsViewController.swift */,
+				7C559682215D016900A3363B /* SignupFieldsViewModel.swift */,
+			);
+			path = SignupFields;
+			sourceTree = "<group>";
+		};
 		7CF4C336215CD92400AB96E3 = {
 			isa = PBXGroup;
 			children = (
@@ -68,9 +113,15 @@
 		7CF4C341215CD92400AB96E3 /* RxDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				7C55967F215D013000A3363B /* SignupFields */,
+				7C559676215CFE8200A3363B /* EditProfile */,
+				7C559675215CFE7500A3363B /* UserProfile */,
 				7CF4C359215CE3AC00AB96E3 /* User */,
 				7CF4C356215CE38700AB96E3 /* SignUp */,
 				7CF4C342215CD92400AB96E3 /* AppDelegate.swift */,
+				7C559684215D04F600A3363B /* Extentions.swift */,
+				7C559686215D17F500A3363B /* Enums.swift */,
+				7C559688215D209900A3363B /* ViewControllersFactory.swift */,
 				7CF4C346215CD92400AB96E3 /* Main.storyboard */,
 				7CF4C349215CD92600AB96E3 /* Assets.xcassets */,
 				7CF4C34B215CD92600AB96E3 /* LaunchScreen.storyboard */,
@@ -208,11 +259,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxDemoApp/Pods-RxDemoApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -228,10 +283,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C559689215D209900A3363B /* ViewControllersFactory.swift in Sources */,
+				7C55967E215CFEE100A3363B /* EditProfileViewModel.swift in Sources */,
 				7CF4C35B215CE3BF00AB96E3 /* User.swift in Sources */,
+				7C559678215CFE9600A3363B /* UserProfileViewController.swift in Sources */,
+				7C559685215D04F600A3363B /* Extentions.swift in Sources */,
+				7C559681215D015000A3363B /* SignupFieldsViewController.swift in Sources */,
 				7CF4C345215CD92400AB96E3 /* SignUpViewController.swift in Sources */,
+				7C559683215D016900A3363B /* SignupFieldsViewModel.swift in Sources */,
 				7CF4C358215CE3A700AB96E3 /* SignUpViewModel.swift in Sources */,
 				7CF4C343215CD92400AB96E3 /* AppDelegate.swift in Sources */,
+				7C55967A215CFEB300A3363B /* UserProfileViewModel.swift in Sources */,
+				7C559687215D17F500A3363B /* Enums.swift in Sources */,
+				7C55967C215CFECE00A3363B /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
