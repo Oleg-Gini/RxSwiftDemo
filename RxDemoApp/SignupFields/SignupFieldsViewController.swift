@@ -12,7 +12,7 @@ import RxSwift
 
 class SignupFieldsViewController: UIViewController
 {
-    private var viewModel  = SignupFieldsViewModel()
+    private var viewModel: SignupFieldsViewModelProtocol = SignupFieldsViewModel()
     private var disposeBag = DisposeBag()
     
     @IBOutlet weak var emailField: UITextField!
@@ -23,6 +23,7 @@ class SignupFieldsViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         setupViews()
         subscribe()
     }

@@ -10,10 +10,22 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-struct SignupFieldsViewModel
+protocol SignupFieldsViewModelProtocol
 {
-    let disposeBag = DisposeBag()
+    var disposeBag: DisposeBag { get set }
     
+    var signupButtonNormalStateColor   : UIColor { get }
+    var signupButtonDisabledStateColor : UIColor { get }
+    
+    var email           : BehaviorRelay<String> { get set }
+    var password        : BehaviorRelay<String> { get set }
+    var confirmPassword : BehaviorRelay<String> { get set }
+    var isValid         : Observable<Bool>      { get set }
+}
+
+class SignupFieldsViewModel: SignupFieldsViewModelProtocol
+{
+    var disposeBag                     = DisposeBag()
     var signupButtonNormalStateColor   = UIColor.blue
     var signupButtonDisabledStateColor = UIColor.blue.withAlphaComponent(0.5)
     
