@@ -32,21 +32,25 @@ extension SignupFieldsViewController
 {
     func subscribe()
     {
+        //email
         emailField.rx.text
             .orEmpty
             .bind(to: viewModel.email)
             .disposed(by: disposeBag)
 
+        //password
         passwordField.rx.value.asObservable().subscribe(onNext: {[weak self] value in
             self?.setPassword(value)
         })
         .disposed(by: disposeBag)
 
+        //confirm password
         confirmPasswordField.rx.value.asObservable().subscribe(onNext: { [weak self] value in
             self?.setConfirmPassword(value)
         })
         .disposed(by: disposeBag)
         
+        // validadtion state
         viewModel.isValid
             .filter({ [weak self] (isValid) -> Bool in
                 
@@ -59,7 +63,7 @@ extension SignupFieldsViewController
                 
                 self?.signupButtonState(enable: isValid)
         })
-        .disposed(by: disposeBag)
+        .disposed(by: viewModel.disposeBag)
     }
 }
 
@@ -69,12 +73,14 @@ extension SignupFieldsViewController
     private func setPassword(_ text: String?)
     {
         guard let text = text else { return }
-        viewModel.password.value = text
+        
+        viewModel.password.accept(text)
     }
     private func setConfirmPassword(_ text: String?)
     {
         guard let text = text else { return }
-        viewModel.confirmPassword.value = text
+        
+        viewModel.confirmPassword.accept(text)
     }
     
     private func signupButtonState(enable: Bool)

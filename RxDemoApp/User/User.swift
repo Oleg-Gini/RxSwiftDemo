@@ -14,10 +14,10 @@ class User: NSObject
 {
     static var shared = User()
     
-    private(set) var user = Variable<User>(User())
+    private(set) var user = BehaviorRelay<User>(value: User())
     
     func setUser(model: User)
     {
-        user.value = model
+        user.accept(model)
     }
 }

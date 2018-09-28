@@ -12,15 +12,15 @@ import RxCocoa
 
 struct SignupFieldsViewModel
 {
-    private let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     var signupButtonNormalStateColor   = UIColor.blue
     var signupButtonDisabledStateColor = UIColor.blue.withAlphaComponent(0.5)
     
-    var email           = Variable<String>("")
-    var password        = Variable<String>("")
-    var confirmPassword = Variable<String>("")
-    var isValid         = Variable<Bool>(false).asObservable().share()
+    var email           = BehaviorRelay<String>(value: "")
+    var password        = BehaviorRelay<String>(value: "")
+    var confirmPassword = BehaviorRelay<String>(value: "")
+    var isValid         = BehaviorRelay<Bool>(value: false).asObservable().share()
     
     init()
     {
