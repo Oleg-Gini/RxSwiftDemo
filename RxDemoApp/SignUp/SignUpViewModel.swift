@@ -15,14 +15,7 @@ class SignUpViewModel: NSObject
     private(set) var signupFields: SignupFieldsViewController?
     
     let disposeBag = DisposeBag()
-    private let baseViewController: UIViewController
-    
-    init(_ base: UIViewController)
-    {
-        self.baseViewController = base
-        super.init()
-    }
-    
+
     func userSignUp() -> Observable<Void>
     {
         return Observable.create({ [weak self] observer in
@@ -46,7 +39,7 @@ class SignUpViewModel: NSObject
         })
     }
     
-    func connectSignupField(to container: UIView) -> Observable<Bool>
+    func connectSignupField(to container: UIView, viewController: UIViewController) -> Observable<Bool>
     {
         return Observable.create{ [weak self] observable in
           
@@ -57,7 +50,7 @@ class SignUpViewModel: NSObject
                 guard let strongSelf = self else { return }
                 
                 strongSelf.signupFields = vc
-                strongSelf.baseViewController.add(vc, container: container)
+                viewController.add(vc, container: container)
                 
                 observable.onNext(true)
                 observable.onCompleted()
@@ -68,8 +61,15 @@ class SignUpViewModel: NSObject
         }
     }
     
-    func pushAccoutViewController()
+    func userConnected(navigationController: UINavigationController)
     {
-        
+        ViewControllersFactory.viewController(.accountViewController)
+            .map({$0 as! AccountViewController})
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: {  vc in
+                
+                navigationController.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }

@@ -26,10 +26,7 @@ extension UIViewController
         view.removeFromSuperview()
         removeFromParent()
     }
-}
-
-extension UIViewController
-{
+    
     var className: String
     {
         return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last ?? ""

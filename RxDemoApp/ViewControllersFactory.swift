@@ -20,14 +20,24 @@ struct ViewControllersFactory
             {
             case .signupFieldsViewController:
                 
-                let vc = getStoryboard(storyboard: .main).instantiateViewController(withIdentifier: type.rawValue)
-                observable.onNext(vc)
+                observable.onNext(getViewController(from: .main, type: type))
+            case .userProfileViewController:
                 
+                observable.onNext(getViewController(from: .main, type: type))
+                
+            case .accountViewController:
+                
+                observable.onNext(getViewController(from: .main, type: type))
             }
             
             return Disposables.create()
         }
         
+    }
+    
+    private static func getViewController(from storyboard: AppStoryboards, type: AppViewControllers) -> UIViewController
+    {
+        return getStoryboard(storyboard: storyboard).instantiateViewController(withIdentifier: type.rawValue)
     }
     
     private static func getStoryboard(storyboard: AppStoryboards, bundle: Bundle? = nil) -> UIStoryboard

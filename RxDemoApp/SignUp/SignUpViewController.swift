@@ -13,7 +13,7 @@ import Alamofire
 
 class SignUpViewController: UIViewController
 {
-    private var viewModel: SignUpViewModel!
+    private var viewModel = SignUpViewModel()
     private let disposeBag = DisposeBag()
     
     @IBOutlet weak var signupFieldsContainer: UIView!
@@ -21,15 +21,13 @@ class SignUpViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        viewModel = SignUpViewModel(self)
     }
     
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
         
-        viewModel.connectSignupField(to: signupFieldsContainer).asObservable().subscribe(onNext: { [weak self] _ in
+        viewModel.connectSignupField(to: signupFieldsContainer, viewController: self).asObservable().subscribe(onNext: { [weak self] _ in
             self?.subscribeForSignupFieldsViewControllerEvents()
         }, onCompleted: {
             print("onCompleted")
@@ -53,17 +51,23 @@ extension SignUpViewController
                 
                 guard let strongSelf = self else { return }
                 
-                _ = strongSelf.viewModel.userSignUp().observeOn(MainScheduler.instance).subscribe(onNext: { _ in
-                    print("User signed up")
+                _ = strongSelf.viewModel.userSignUp().observeOn(MainScheduler.instance).subscribe(onNext: { [weak self]_ in
+                    self?.userConnected()
                 }, onError: { (error) in
-                    print("viewModel.userSignUp() error \(error)")
+                    print("SignUpViewController viewModel.userSignUp() error \(error)")
                 }, onCompleted: {
-                    print("viewModel.userSignUp() onCompleted")
+                    print("SignUpViewController viewModel.userSignUp() onCompleted")
                 }, onDisposed: {
-                    print("viewModel.userSignUp() onDisposed")
+                    print("SignUpViewController viewModel.userSignUp() onDisposed")
                 })
             }
             .disposed(by: viewModel.disposeBag)
+    }
+    
+    private func userConnected()
+    {
+        guard let navigationController = self.navigationController else { return }
+        viewModel.userConnected(navigationController: navigationController)
     }
 }
 

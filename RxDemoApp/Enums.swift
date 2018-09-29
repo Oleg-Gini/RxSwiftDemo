@@ -16,4 +16,6 @@ enum AppStoryboards: String
 enum AppViewControllers: String
 {
     case signupFieldsViewController = "SignupFieldsViewController"
+    case userProfileViewController  = "UserProfileViewController"
+    case accountViewController      = "AccountViewController"
 }

@@ -102,20 +102,37 @@
             </objects>
             <point key="canvasLocation" x="1076" y="132.68365817091455"/>
         </scene>
-        <!--View Controller-->
+        <!--Account View Controller-->
         <scene sceneID="q1d-Dp-YT2">
             <objects>
-                <viewController id="nHL-G6-FrZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountViewController" id="nHL-G6-FrZ" customClass="AccountViewController" customModule="RxDemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cr7-vt-5Mt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foe-Kz-dUF">
+                                <rect key="frame" x="0.0" y="50" width="375" height="175"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="XGg-iu-Koi"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="foe-Kz-dUF" firstAttribute="trailing" secondItem="nuV-Td-9KX" secondAttribute="trailing" id="Efq-7I-SAc"/>
+                            <constraint firstItem="foe-Kz-dUF" firstAttribute="leading" secondItem="nuV-Td-9KX" secondAttribute="leading" id="dcR-U9-eHq"/>
+                            <constraint firstItem="foe-Kz-dUF" firstAttribute="top" secondItem="nuV-Td-9KX" secondAttribute="top" constant="30" id="xnV-7d-tJU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nuV-Td-9KX"/>
                     </view>
+                    <connections>
+                        <outlet property="userProfileContainer" destination="foe-Kz-dUF" id="czJ-sA-qne"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hU5-G5-f3W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1767" y="133"/>
+            <point key="canvasLocation" x="1765.5999999999999" y="132.68365817091455"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="4IT-xw-0dp">
@@ -137,15 +154,43 @@
             <objects>
                 <viewController storyboardIdentifier="UserProfileViewController" id="wdF-8Q-iRG" customClass="UserProfileViewController" customModule="RxDemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aHD-0i-7Pu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rW5-w8-rEc">
+                                <rect key="frame" x="137.5" y="20" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rW5-w8-rEc" secondAttribute="height" multiplier="1:1" id="Qyh-gI-dmh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pFQ-oN-bAW">
+                                <rect key="frame" x="0.0" y="133" width="375" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pFQ-oN-bAW" firstAttribute="height" secondItem="aHD-0i-7Pu" secondAttribute="height" multiplier="0.158" id="0Vd-cz-3qp"/>
+                            <constraint firstItem="rW5-w8-rEc" firstAttribute="top" secondItem="k75-ay-WrC" secondAttribute="top" constant="20" id="3vq-ej-pG0"/>
+                            <constraint firstItem="rW5-w8-rEc" firstAttribute="height" secondItem="aHD-0i-7Pu" secondAttribute="height" multiplier="0.57" id="8cl-7N-9lK"/>
+                            <constraint firstItem="rW5-w8-rEc" firstAttribute="centerX" secondItem="k75-ay-WrC" secondAttribute="centerX" id="bRb-wp-XdQ"/>
+                            <constraint firstItem="k75-ay-WrC" firstAttribute="trailing" secondItem="pFQ-oN-bAW" secondAttribute="trailing" id="cPM-CT-zss"/>
+                            <constraint firstItem="pFQ-oN-bAW" firstAttribute="leading" secondItem="k75-ay-WrC" secondAttribute="leading" id="ezC-Pd-9n1"/>
+                            <constraint firstItem="pFQ-oN-bAW" firstAttribute="top" secondItem="rW5-w8-rEc" secondAttribute="bottom" constant="13" id="u1q-p2-uiG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="k75-ay-WrC"/>
                     </view>
+                    <size key="freeformSize" width="375" height="175"/>
+                    <connections>
+                        <outlet property="userEmail" destination="pFQ-oN-bAW" id="bby-T6-fPl"/>
+                        <outlet property="userImage" destination="rW5-w8-rEc" id="k5Y-23-fJv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YzF-T9-7jG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2422" y="510"/>
+            <point key="canvasLocation" x="2450" y="329"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xDg-lE-GRm">
