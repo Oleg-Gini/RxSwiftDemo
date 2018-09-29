@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Alamofire
 
 class SignUpViewController: UIViewController
 {
@@ -22,7 +23,6 @@ class SignUpViewController: UIViewController
         super.viewDidLoad()
         
         viewModel = SignUpViewModel(self)
-        
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -49,8 +49,19 @@ extension SignUpViewController
     {
         viewModel.signupFields?.buttonSignup.rx.tap
             .bind
-            {
-                print("tap")
+            {[weak self] in
+                
+                guard let strongSelf = self else { return }
+                
+                _ = strongSelf.viewModel.userSignUp().subscribe(onNext: { _ in
+                    print("User signed up")
+                }, onError: { (error) in
+                    print("viewModel.userSignUp() error \(error)")
+                }, onCompleted: {
+                    print("viewModel.userSignUp() onCompleted")
+                }, onDisposed: {
+                    print("viewModel.userSignUp() onDisposed")
+                })
             }
             .disposed(by: viewModel.disposeBag)
     }

@@ -28,9 +28,37 @@ extension UIViewController
     }
 }
 
-extension UIViewController {
-    var className: String {
+extension UIViewController
+{
+    var className: String
+    {
         return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last ?? ""
+    }
+}
+
+extension Data
+{
+    func toJsonObject(data: Data) -> Observable<[String:Any]>
+    {
+        return Observable.create({ observer in
+            
+            do
+            {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                {
+                    observer.onNext(json)
+                }
+                
+                observer.onCompleted()
+            }
+            catch
+            {
+                observer.onError(NSError())
+                observer.onCompleted()
+            }
+            
+            return Disposables.create()
+        })
     }
 }
 

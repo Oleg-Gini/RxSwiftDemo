@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import Alamofire
 
 class SignUpViewModel: NSObject
 {
@@ -20,6 +21,29 @@ class SignUpViewModel: NSObject
     {
         self.baseViewController = base
         super.init()
+    }
+    
+    func userSignUp() -> Observable<Void>
+    {
+        return Observable.create({ [weak self] observer in
+            
+            guard let strongSelf = self else { return Disposables.create()}
+            
+            UserManager.shared.userSignUp().subscribe(onNext: { (user) in
+                observer.onNext(())
+                observer.onCompleted()
+            }, onError: { (error) in
+                print(error)
+                observer.onCompleted()
+            }, onCompleted: {
+                print("SignUpViewModel userSignUp() onCompleted")
+            }) {
+                print("SignUpViewModel userSignUp() onDisposed")
+            }
+            .disposed(by: strongSelf.disposeBag)
+            
+            return Disposables.create()
+        })
     }
     
     func connectSignupField(to container: UIView) -> Observable<Bool>
@@ -42,6 +66,10 @@ class SignUpViewModel: NSObject
             
             return Disposables.create()
         }
+    }
+    
+    func pushAccoutViewController()
+    {
         
     }
 }

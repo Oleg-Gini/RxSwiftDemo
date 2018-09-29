@@ -16,6 +16,9 @@
 		7C559685215D04F600A3363B /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C559684215D04F600A3363B /* Extentions.swift */; };
 		7C559687215D17F500A3363B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C559686215D17F500A3363B /* Enums.swift */; };
 		7C559689215D209900A3363B /* ViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C559688215D209900A3363B /* ViewControllersFactory.swift */; };
+		7C55968B215EC43300A3363B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55968A215EC43300A3363B /* NetworkManager.swift */; };
+		7C55968D215EC53900A3363B /* Alamofire+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55968C215EC53900A3363B /* Alamofire+rx.swift */; };
+		7C55968F215FD4E000A3363B /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55968E215FD4E000A3363B /* UserManager.swift */; };
 		7CF4C343215CD92400AB96E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C342215CD92400AB96E3 /* AppDelegate.swift */; };
 		7CF4C345215CD92400AB96E3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C344215CD92400AB96E3 /* SignUpViewController.swift */; };
 		7CF4C348215CD92400AB96E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF4C346215CD92400AB96E3 /* Main.storyboard */; };
@@ -38,6 +41,9 @@
 		7C559684215D04F600A3363B /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		7C559686215D17F500A3363B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		7C559688215D209900A3363B /* ViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersFactory.swift; sourceTree = "<group>"; };
+		7C55968A215EC43300A3363B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7C55968C215EC53900A3363B /* Alamofire+rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire+rx.swift"; sourceTree = "<group>"; };
+		7C55968E215FD4E000A3363B /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		7CF4C33F215CD92400AB96E3 /* RxDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF4C342215CD92400AB96E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CF4C344215CD92400AB96E3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +97,13 @@
 			path = SignupFields;
 			sourceTree = "<group>";
 		};
+		7C559690215FE9B800A3363B /* Account */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		7CF4C336215CD92400AB96E3 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +126,7 @@
 		7CF4C341215CD92400AB96E3 /* RxDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				7C559690215FE9B800A3363B /* Account */,
 				7C55967F215D013000A3363B /* SignupFields */,
 				7C559676215CFE8200A3363B /* EditProfile */,
 				7C559675215CFE7500A3363B /* UserProfile */,
@@ -122,6 +136,8 @@
 				7C559684215D04F600A3363B /* Extentions.swift */,
 				7C559686215D17F500A3363B /* Enums.swift */,
 				7C559688215D209900A3363B /* ViewControllersFactory.swift */,
+				7C55968A215EC43300A3363B /* NetworkManager.swift */,
+				7C55968C215EC53900A3363B /* Alamofire+rx.swift */,
 				7CF4C346215CD92400AB96E3 /* Main.storyboard */,
 				7CF4C349215CD92600AB96E3 /* Assets.xcassets */,
 				7CF4C34B215CD92600AB96E3 /* LaunchScreen.storyboard */,
@@ -143,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				7CF4C35A215CE3BF00AB96E3 /* User.swift */,
+				7C55968E215FD4E000A3363B /* UserManager.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -289,10 +306,13 @@
 				7C559678215CFE9600A3363B /* UserProfileViewController.swift in Sources */,
 				7C559685215D04F600A3363B /* Extentions.swift in Sources */,
 				7C559681215D015000A3363B /* SignupFieldsViewController.swift in Sources */,
+				7C55968F215FD4E000A3363B /* UserManager.swift in Sources */,
 				7CF4C345215CD92400AB96E3 /* SignUpViewController.swift in Sources */,
 				7C559683215D016900A3363B /* SignupFieldsViewModel.swift in Sources */,
 				7CF4C358215CE3A700AB96E3 /* SignUpViewModel.swift in Sources */,
+				7C55968D215EC53900A3363B /* Alamofire+rx.swift in Sources */,
 				7CF4C343215CD92400AB96E3 /* AppDelegate.swift in Sources */,
+				7C55968B215EC43300A3363B /* NetworkManager.swift in Sources */,
 				7C55967A215CFEB300A3363B /* UserProfileViewModel.swift in Sources */,
 				7C559687215D17F500A3363B /* Enums.swift in Sources */,
 				7C55967C215CFECE00A3363B /* EditProfileViewController.swift in Sources */,

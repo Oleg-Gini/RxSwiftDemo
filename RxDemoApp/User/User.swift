@@ -10,14 +10,20 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class User: NSObject
+class User
 {
-    static var shared = User()
+    var email : BehaviorRelay<String>
+    var image : BehaviorRelay<String>
     
-    private(set) var user = BehaviorRelay<User>(value: User())
-    
-    func setUser(model: User)
+    init(dictionary: [String: Any])
     {
-        user.accept(model)
+        email = BehaviorRelay<String>(value: dictionary["email"] as? String ?? "")
+        image = BehaviorRelay<String>(value: dictionary["image"] as? String ?? "")
+    }
+    
+    init()
+    {
+        email = BehaviorRelay<String>(value: "")
+        image = BehaviorRelay<String>(value: "")
     }
 }
