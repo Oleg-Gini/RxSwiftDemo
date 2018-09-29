@@ -53,7 +53,7 @@ extension SignUpViewController
                 
                 guard let strongSelf = self else { return }
                 
-                _ = strongSelf.viewModel.userSignUp().subscribe(onNext: { _ in
+                _ = strongSelf.viewModel.userSignUp().observeOn(MainScheduler.instance).subscribe(onNext: { _ in
                     print("User signed up")
                 }, onError: { (error) in
                     print("viewModel.userSignUp() error \(error)")
