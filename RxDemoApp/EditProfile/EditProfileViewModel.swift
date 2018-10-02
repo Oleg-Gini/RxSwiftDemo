@@ -14,7 +14,31 @@ class EditProfileViewModel: NSObject
 {
     private(set) var setImageViewController: SetImageViewController?
     
-    let disposeBag = DisposeBag()
+    let disposeBag  = DisposeBag()
+    var emailField  = BehaviorRelay<String?>(value:nil)
+    var pickedImage = BehaviorRelay<UIImage?>(value:nil)
+    
+    var newUserData: User?
+    {
+        guard let email = emailField.value  else { return nil }
+        guard email.isValidEmail            else { return nil }
+        
+        let user = User()
+        
+        user.email.accept(emailField.value ?? "")
+        user.image.accept("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF0bqDwBtHtNK7hBsG53X_qI0JA458QjRMeMlpI0hwsYlvUmz_")
+        
+        return user
+    }
+    
+    private func subscribeForImageChanges()
+    {
+        setImageViewController?.pickedImage.asObservable().subscribe(onNext: { [weak self] image in
+            
+            self?.pickedImage.accept(image)
+        })
+        .disposed(by: disposeBag)
+    }
     
     func connectEditImageView(to container: UIView, viewController: UIViewController) -> Observable<Bool>
     {
@@ -32,6 +56,8 @@ class EditProfileViewModel: NSObject
                     
                     strongSelf.setImageViewController = vc
                     viewController.add(vc, container: container)
+                    
+                    strongSelf.subscribeForImageChanges()
                     
                     observable.onNext(true)
                     observable.onCompleted()

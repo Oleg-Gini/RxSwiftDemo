@@ -16,12 +16,18 @@ class EditProfileViewController: UIViewController
     private var viewModel: EditProfileViewModel!
 
     @IBOutlet weak var editImageContainer: UIView!
+    @IBOutlet weak var buttonSaveChanges : UIButton!
+    @IBOutlet weak var emailField        : UITextField!
+    
+    var finishedEditing = PublishSubject<Void?>()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         viewModel  = EditProfileViewModel()
+        
+        RxObservers()
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -34,8 +40,8 @@ class EditProfileViewController: UIViewController
     {
         if viewModel.setImageViewController == nil
         {
-            viewModel.connectEditImageView(to: editImageContainer, viewController: self).asObservable().subscribe(onNext: { [weak self] _ in
-                self?.setImageViewControllerObservers()
+            viewModel.connectEditImageView(to: editImageContainer, viewController: self).asObservable().subscribe(onNext: {  _ in
+        
             }, onCompleted: {
                     print("EditProfileViewController viewModel.connectEditImageView onCompleted")
             }, onDisposed: {
@@ -44,13 +50,50 @@ class EditProfileViewController: UIViewController
             .disposed(by: disposeBag)
         }
     }
+    
+    private func showAlert()
+    {
+        alert(title: "Wrong Email", text: "Please enter correct email address").asObservable().subscribe().disposed(by: disposeBag)
+    }
 }
 
-//MARK: SetImageViewController Observers
+//MARK: Rx Observers
 extension EditProfileViewController
 {
-    private func setImageViewControllerObservers()
+    private func RxObservers()
     {
+        emailField.rx.text
+            .orEmpty
+            .bind(to: viewModel.emailField)
+            .disposed(by: disposeBag)
         
+        buttonSaveChanges
+            .rx
+            .controlEvent(.touchUpInside)
+            .asObservable()
+            .filter({
+                guard let _ = self.viewModel.newUserData  else { return false }
+                return true
+            })
+            .map({self.viewModel.newUserData!})
+            .subscribe(onNext: { newUser in
+            
+                UserManager.shared.setUser(model: newUser)
+                self.finishedEditing.onNext(nil)
+            
+        }).disposed(by: disposeBag)
+        
+        buttonSaveChanges.rx.tap.bind{ [weak self] in
+            
+            guard let strongSelf = self else { return }
+            guard let email = strongSelf.viewModel.emailField.value else { return }
+            
+            if !email.isValidEmail
+            {
+                strongSelf.showAlert()
+            }
+        }
+        .disposed(by: disposeBag)
+
     }
 }

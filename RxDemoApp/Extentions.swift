@@ -17,6 +17,15 @@ extension UIViewController
         child.view.frame = container.bounds
         
         container.addSubview(child.view)
+        
+        container.translatesAutoresizingMaskIntoConstraints = false
+        
+        let      topConstraint = NSLayoutConstraint(item: child.view, attribute: .top     , relatedBy: .equal, toItem: container, attribute: .top     , multiplier: 1.0, constant: 0.0)
+        let   bottomConstraint = NSLayoutConstraint(item: child.view, attribute: .bottom  , relatedBy: .equal, toItem: container, attribute: .bottom  , multiplier: 1.0, constant: 0.0)
+        let  leadingConstraint = NSLayoutConstraint(item: child.view, attribute: .leading , relatedBy: .equal, toItem: container, attribute: .leading , multiplier: 1.0, constant: 0.0)
+        let trailingConstraint = NSLayoutConstraint(item: child.view, attribute: .trailing, relatedBy: .equal, toItem: container, attribute: .trailing, multiplier: 1.0, constant: 0.0)
+        container.addConstraints([topConstraint,bottomConstraint,leadingConstraint,trailingConstraint])
+        
         child.didMove(toParent: self)
     }
     

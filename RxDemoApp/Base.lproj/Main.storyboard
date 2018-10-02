@@ -67,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPk-jZ-qq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1750" y="-510"/>
+            <point key="canvasLocation" x="1076" y="-376"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -117,11 +117,11 @@
                                     <constraint firstAttribute="height" constant="175" id="XGg-iu-Koi"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-Gr-271">
-                                <rect key="frame" x="0.0" y="225" width="375" height="250"/>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-Gr-271">
+                                <rect key="frame" x="0.0" y="225" width="375" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="qFP-Wt-vrU"/>
+                                    <constraint firstAttribute="height" constant="200" id="qFP-Wt-vrU"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -144,39 +144,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hU5-G5-f3W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1765.5999999999999" y="132.68365817091455"/>
-        </scene>
-        <!--Edit Profile View Controller-->
-        <scene sceneID="4IT-xw-0dp">
-            <objects>
-                <viewController storyboardIdentifier="EditProfileViewController" id="N64-fQ-3Uf" customClass="EditProfileViewController" customModule="RxDemoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="msj-dQ-IXD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2k-vg-3d2">
-                                <rect key="frame" x="0.0" y="20" width="375" height="70"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="pzK-3G-GAL"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="z2k-vg-3d2" firstAttribute="trailing" secondItem="4Ko-me-kpY" secondAttribute="trailing" id="DQV-oG-Lw4"/>
-                            <constraint firstItem="z2k-vg-3d2" firstAttribute="top" secondItem="4Ko-me-kpY" secondAttribute="top" constant="20" id="PeU-yO-ZS8"/>
-                            <constraint firstItem="z2k-vg-3d2" firstAttribute="leading" secondItem="4Ko-me-kpY" secondAttribute="leading" id="lWr-sX-fqU"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="4Ko-me-kpY"/>
-                    </view>
-                    <size key="freeformSize" width="375" height="250"/>
-                    <connections>
-                        <outlet property="editImageContainer" destination="z2k-vg-3d2" id="ODJ-Eq-Idc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="88E-Bh-Y1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2408.8000000000002" y="-166.41679160419793"/>
         </scene>
         <!--Set Image View Controller-->
         <scene sceneID="vf4-dp-nxr">
@@ -305,6 +272,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2K-Qn-qD0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="388" y="133"/>
+        </scene>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="DOA-wK-3P3">
+            <objects>
+                <viewController storyboardIdentifier="EditProfileViewController" id="iAx-NL-UBd" customClass="EditProfileViewController" customModule="RxDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dso-h0-7Tc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7A8-Yw-aoV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="iQB-Pc-o16"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0f-Ck-78H">
+                                <rect key="frame" x="0.0" y="98" width="375" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8NJ-9M-g3L">
+                                        <rect key="frame" x="16" y="0.0" width="343" height="40"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="8NJ-9M-g3L" firstAttribute="leading" secondItem="O0f-Ck-78H" secondAttribute="leading" constant="16" id="El4-iz-VJc"/>
+                                    <constraint firstAttribute="trailing" secondItem="8NJ-9M-g3L" secondAttribute="trailing" constant="16" id="Pm0-93-GIX"/>
+                                    <constraint firstAttribute="bottom" secondItem="8NJ-9M-g3L" secondAttribute="bottom" id="Uf3-rs-ye4"/>
+                                    <constraint firstItem="8NJ-9M-g3L" firstAttribute="top" secondItem="O0f-Ck-78H" secondAttribute="top" id="bLN-We-ag5"/>
+                                    <constraint firstAttribute="height" constant="40" id="mVQ-ZW-2XY"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlC-AQ-mmD">
+                                <rect key="frame" x="156" y="153" width="63" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7A8-Yw-aoV" firstAttribute="leading" secondItem="Y5x-Ru-uqM" secondAttribute="leading" id="3dt-Yu-XI3"/>
+                            <constraint firstItem="7A8-Yw-aoV" firstAttribute="top" secondItem="Y5x-Ru-uqM" secondAttribute="top" constant="20" id="4A6-w2-GXq"/>
+                            <constraint firstItem="O0f-Ck-78H" firstAttribute="top" secondItem="7A8-Yw-aoV" secondAttribute="bottom" constant="8" id="5Vn-1u-lFC"/>
+                            <constraint firstItem="7A8-Yw-aoV" firstAttribute="trailing" secondItem="Y5x-Ru-uqM" secondAttribute="trailing" id="AW0-iv-Y2K"/>
+                            <constraint firstItem="JlC-AQ-mmD" firstAttribute="top" secondItem="O0f-Ck-78H" secondAttribute="bottom" constant="15" id="Jdo-SI-9ym"/>
+                            <constraint firstItem="O0f-Ck-78H" firstAttribute="leading" secondItem="Y5x-Ru-uqM" secondAttribute="leading" id="SB9-RZ-Biv"/>
+                            <constraint firstItem="JlC-AQ-mmD" firstAttribute="centerX" secondItem="Y5x-Ru-uqM" secondAttribute="centerX" id="s1x-zb-ye5"/>
+                            <constraint firstItem="Y5x-Ru-uqM" firstAttribute="trailing" secondItem="O0f-Ck-78H" secondAttribute="trailing" id="uDI-KO-Pq2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Y5x-Ru-uqM"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="200"/>
+                    <connections>
+                        <outlet property="buttonSaveChanges" destination="JlC-AQ-mmD" id="sRi-v2-igQ"/>
+                        <outlet property="editImageContainer" destination="7A8-Yw-aoV" id="H0F-4o-5xA"/>
+                        <outlet property="emailField" destination="8NJ-9M-g3L" id="LbQ-0t-Jfg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zh0-Eu-364" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2423" y="-85"/>
         </scene>
     </scenes>
     <resources>

@@ -18,6 +18,9 @@ class SetImageViewController: UIViewController, UIImagePickerControllerDelegate,
 
     private let disposeBag  = DisposeBag()
     
+    //Rx
+    var pickedImage = PublishSubject<UIImage>()
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var buttonOpenPhotos: UIButton!
     
@@ -50,6 +53,9 @@ class SetImageViewController: UIViewController, UIImagePickerControllerDelegate,
         imagePicker?.pickedImage.subscribe(onNext: { [weak self] image in
             
             self?.imageView.image = image
+            self?.pickedImage.onNext(image)
+            
+            
         }, onError: { (error) in
             print(error)
         }, onCompleted: {

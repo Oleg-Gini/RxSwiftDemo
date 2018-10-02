@@ -31,6 +31,14 @@ class AccountViewController: UIViewController
         connectViews()
     }
     
+    private func setEditProfileContainerVisibility()
+    {
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.editProfileContainer.alpha = strongSelf.editProfileContainer.alpha == 0 ? 1 : 0
+        })
+    }
+    
 }
 
 //MARK: Rx UserProfileContainer
@@ -42,7 +50,7 @@ extension AccountViewController
             
             guard let strongSelf = self else { return }
 
-            print("tap")
+            strongSelf.setEditProfileContainerVisibility()
             
         }
         .disposed(by: viewModel.disposeBag)
@@ -50,7 +58,14 @@ extension AccountViewController
     
     private func rxEditProfileContainer()
     {
-        
+        viewModel.editProfileView?.finishedEditing.asObservable().subscribe(onNext: {[weak self]  _ in
+            
+            guard let strongSelf = self else { return }
+            
+            strongSelf.setEditProfileContainerVisibility()
+            
+        })
+        .disposed(by: viewModel.disposeBag)
     }
     
     private func connectViews()
@@ -70,6 +85,7 @@ extension AccountViewController
         
         viewModel.connectEditProfileView(to: editProfileContainer, viewController: self).asObservable().subscribe(onNext: { [weak self] _ in
             self?.rxEditProfileContainer()
+
         }, onCompleted: {
             print("AccountViewController viewModel.connectEditProfileView onCompleted")
         }, onDisposed: {
