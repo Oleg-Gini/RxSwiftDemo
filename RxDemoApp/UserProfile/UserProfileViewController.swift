@@ -17,6 +17,7 @@ class UserProfileViewController: UIViewController
     
     @IBOutlet weak var userImage : UIImageView!
     @IBOutlet weak var userEmail : UILabel!
+    @IBOutlet weak var buttonEdit: UIButton!
     
     override func viewDidLoad()
     {
@@ -28,6 +29,7 @@ class UserProfileViewController: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.view.layoutIfNeeded()
         userImage.layer.cornerRadius  = userImage.frame.height / 2
         userImage.layer.masksToBounds = true
     }

@@ -18,4 +18,6 @@ enum AppViewControllers: String
     case signupFieldsViewController = "SignupFieldsViewController"
     case userProfileViewController  = "UserProfileViewController"
     case accountViewController      = "AccountViewController"
+    case editProfileViewController  = "EditProfileViewController"
+    case setImageViewController     = "SetImageViewController"
 }

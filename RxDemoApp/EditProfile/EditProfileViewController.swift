@@ -7,24 +7,50 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController
+{
+    private let disposeBag = DisposeBag()
+    private var viewModel: EditProfileViewModel!
 
-    override func viewDidLoad() {
+    @IBOutlet weak var editImageContainer: UIView!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        viewModel  = EditProfileViewModel()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        connectViews()
     }
-    */
 
+    private func connectViews()
+    {
+        if viewModel.setImageViewController == nil
+        {
+            viewModel.connectEditImageView(to: editImageContainer, viewController: self).asObservable().subscribe(onNext: { [weak self] _ in
+                self?.setImageViewControllerObservers()
+            }, onCompleted: {
+                    print("EditProfileViewController viewModel.connectEditImageView onCompleted")
+            }, onDisposed: {
+                print("EditProfileViewController viewModel.connectEditImageView onDisposed")
+            })
+            .disposed(by: disposeBag)
+        }
+    }
+}
+
+//MARK: SetImageViewController Observers
+extension EditProfileViewController
+{
+    private func setImageViewControllerObservers()
+    {
+        
+    }
 }

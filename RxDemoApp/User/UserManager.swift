@@ -16,6 +16,11 @@ class UserManager: NSObject
     
     private(set) var user = BehaviorRelay<User>(value: User())
     
+    lazy var currentUserObservable: Observable<User> =
+    {
+        return user.asObservable().share()
+    }()
+    
     func setUser(model: User)
     {
         user.accept(model)

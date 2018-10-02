@@ -12,8 +12,10 @@ import RxSwift
 class AccountViewModel: NSObject
 {
     private(set) var userProfileView: UserProfileViewController?
+    private(set) var editProfileView: EditProfileViewController?
+    var initViewsConnected = false
     
-    private let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     func connectUserProfileView(to container: UIView, viewController: UIViewController) -> Observable<Bool>
     {
@@ -27,9 +29,35 @@ class AccountViewModel: NSObject
                 .map({$0 as! UserProfileViewController})
                 .subscribe(onNext: { [weak self] vc in
                     
-                    guard let strongSelf = self else { return }
+                    guard let strongSelf = self else { observable.onCompleted() ; return }
                     
                     strongSelf.userProfileView = vc
+                    viewController.add(vc, container: container)
+                    
+                    observable.onNext(true)
+                    observable.onCompleted()
+                })
+                .disposed(by: strongSelf.disposeBag)
+            
+            return disposables
+        }
+    }
+    
+    func connectEditProfileView(to container: UIView, viewController: UIViewController) -> Observable<Bool>
+    {
+        return Observable.create{ [weak self] observable in
+            
+            let disposables = Disposables.create()
+            
+            guard let strongSelf = self else { return disposables }
+            
+            ViewControllersFactory.viewController(.editProfileViewController)
+                .map({$0 as! EditProfileViewController})
+                .subscribe(onNext: { [weak self] vc in
+                    
+                    guard let strongSelf = self else { observable.onCompleted() ; return }
+                    
+                    strongSelf.editProfileView = vc
                     viewController.add(vc, container: container)
                     
                     observable.onNext(true)

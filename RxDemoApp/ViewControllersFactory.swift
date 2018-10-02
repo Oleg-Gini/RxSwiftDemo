@@ -28,6 +28,12 @@ struct ViewControllersFactory
             case .accountViewController:
                 
                 observable.onNext(getViewController(from: .main, type: type))
+            case .editProfileViewController:
+                
+                observable.onNext(getViewController(from: .main, type: type))
+            case .setImageViewController:
+                
+                observable.onNext(getViewController(from: .main, type: type))
             }
             
             return Disposables.create()

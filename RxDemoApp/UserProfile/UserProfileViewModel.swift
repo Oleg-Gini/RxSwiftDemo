@@ -19,7 +19,7 @@ class UserProfileViewModel: NSObject
     {
         super.init()
         
-        UserManager.shared.user.subscribe(onNext: { [weak self] (user) in
+        UserManager.shared.currentUserObservable.subscribe(onNext: { [weak self] (user) in
             
             guard let strongSelf = self else { return }
             strongSelf.userModel.accept(user)

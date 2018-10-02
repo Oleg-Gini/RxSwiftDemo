@@ -29,6 +29,11 @@
 		7CF4C355215CD9A000AB96E3 /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = 7CF4C354215CD9A000AB96E3 /* PodFile */; };
 		7CF4C358215CE3A700AB96E3 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C357215CE3A700AB96E3 /* SignUpViewModel.swift */; };
 		7CF4C35B215CE3BF00AB96E3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C35A215CE3BF00AB96E3 /* User.swift */; };
+		7CF4C35E216348A500AB96E3 /* SetImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C35D216348A500AB96E3 /* SetImageViewController.swift */; };
+		7CF4C360216348BF00AB96E3 /* SetImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C35F216348BF00AB96E3 /* SetImageViewModel.swift */; };
+		7CF4C36221634AA700AB96E3 /* PHPhotoLibrary+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C36121634AA600AB96E3 /* PHPhotoLibrary+rx.swift */; };
+		7CF4C36421634FB400AB96E3 /* UIImagePickerController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C36321634FB400AB96E3 /* UIImagePickerController+Rx.swift */; };
+		7CF4C3662163647A00AB96E3 /* RxUnwrapOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C3652163647A00AB96E3 /* RxUnwrapOptional.swift */; };
 		B856D91AFD0FD089112FBC0A /* Pods_RxDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D32D8BB80D94DE580914F5C /* Pods_RxDemoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +63,11 @@
 		7CF4C354215CD9A000AB96E3 /* PodFile */ = {isa = PBXFileReference; lastKnownFileType = text; path = PodFile; sourceTree = "<group>"; };
 		7CF4C357215CE3A700AB96E3 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		7CF4C35A215CE3BF00AB96E3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7CF4C35D216348A500AB96E3 /* SetImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetImageViewController.swift; sourceTree = "<group>"; };
+		7CF4C35F216348BF00AB96E3 /* SetImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetImageViewModel.swift; sourceTree = "<group>"; };
+		7CF4C36121634AA600AB96E3 /* PHPhotoLibrary+rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+rx.swift"; sourceTree = "<group>"; };
+		7CF4C36321634FB400AB96E3 /* UIImagePickerController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Rx.swift"; sourceTree = "<group>"; };
+		7CF4C3652163647A00AB96E3 /* RxUnwrapOptional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUnwrapOptional.swift; sourceTree = "<group>"; };
 		87DFDAABD63C09CD13F7F8CC /* Pods-RxDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxDemoApp/Pods-RxDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		B91247757C83C1C47C380CA1 /* Pods-RxDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDemoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxDemoApp/Pods-RxDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +142,7 @@
 		7CF4C341215CD92400AB96E3 /* RxDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				7CF4C35C2163486C00AB96E3 /* EditImage */,
 				7C559690215FE9B800A3363B /* Account */,
 				7C55967F215D013000A3363B /* SignupFields */,
 				7C559676215CFE8200A3363B /* EditProfile */,
@@ -141,9 +152,12 @@
 				7CF4C342215CD92400AB96E3 /* AppDelegate.swift */,
 				7C559684215D04F600A3363B /* Extentions.swift */,
 				7C559686215D17F500A3363B /* Enums.swift */,
+				7CF4C36321634FB400AB96E3 /* UIImagePickerController+Rx.swift */,
+				7CF4C3652163647A00AB96E3 /* RxUnwrapOptional.swift */,
 				7C559688215D209900A3363B /* ViewControllersFactory.swift */,
 				7C55968A215EC43300A3363B /* NetworkManager.swift */,
 				7C55968C215EC53900A3363B /* Alamofire+rx.swift */,
+				7CF4C36121634AA600AB96E3 /* PHPhotoLibrary+rx.swift */,
 				7CF4C346215CD92400AB96E3 /* Main.storyboard */,
 				7CF4C349215CD92600AB96E3 /* Assets.xcassets */,
 				7CF4C34B215CD92600AB96E3 /* LaunchScreen.storyboard */,
@@ -168,6 +182,15 @@
 				7C55968E215FD4E000A3363B /* UserManager.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		7CF4C35C2163486C00AB96E3 /* EditImage */ = {
+			isa = PBXGroup;
+			children = (
+				7CF4C35D216348A500AB96E3 /* SetImageViewController.swift */,
+				7CF4C35F216348BF00AB96E3 /* SetImageViewModel.swift */,
+			);
+			path = EditImage;
 			sourceTree = "<group>";
 		};
 		81FCEF9426CAC74CF2BCB03E /* Frameworks */ = {
@@ -306,18 +329,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CF4C3662163647A00AB96E3 /* RxUnwrapOptional.swift in Sources */,
+				7CF4C35E216348A500AB96E3 /* SetImageViewController.swift in Sources */,
 				7C559689215D209900A3363B /* ViewControllersFactory.swift in Sources */,
 				7C55967E215CFEE100A3363B /* EditProfileViewModel.swift in Sources */,
 				7CF4C35B215CE3BF00AB96E3 /* User.swift in Sources */,
+				7CF4C36421634FB400AB96E3 /* UIImagePickerController+Rx.swift in Sources */,
 				7C559678215CFE9600A3363B /* UserProfileViewController.swift in Sources */,
 				7C5596942160137D00A3363B /* AccountViewModel.swift in Sources */,
 				7C559685215D04F600A3363B /* Extentions.swift in Sources */,
+				7CF4C36221634AA700AB96E3 /* PHPhotoLibrary+rx.swift in Sources */,
 				7C559681215D015000A3363B /* SignupFieldsViewController.swift in Sources */,
 				7C55968F215FD4E000A3363B /* UserManager.swift in Sources */,
 				7CF4C345215CD92400AB96E3 /* SignUpViewController.swift in Sources */,
 				7C5596922160134800A3363B /* AccountViewController.swift in Sources */,
 				7C559683215D016900A3363B /* SignupFieldsViewModel.swift in Sources */,
 				7CF4C358215CE3A700AB96E3 /* SignUpViewModel.swift in Sources */,
+				7CF4C360216348BF00AB96E3 /* SetImageViewModel.swift in Sources */,
 				7C55968D215EC53900A3363B /* Alamofire+rx.swift in Sources */,
 				7CF4C343215CD92400AB96E3 /* AppDelegate.swift in Sources */,
 				7C55968B215EC43300A3363B /* NetworkManager.swift in Sources */,

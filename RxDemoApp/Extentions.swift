@@ -31,6 +31,25 @@ extension UIViewController
     {
         return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last ?? ""
     }
+    
+    func alert(title: String, text: String?) -> Observable<Void>
+    {
+        return Observable.create { [weak self] observer in
+            
+            let alertVC = UIAlertController(title: title, message: text, preferredStyle: .alert)
+            
+            alertVC.addAction(UIAlertAction(title: "Close", style: .default, handler: {_ in
+                observer.onCompleted()
+            }))
+            
+            self?.present(alertVC, animated: true, completion: nil)
+            
+            return Disposables.create
+                {
+                    self?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
 }
 
 extension Data

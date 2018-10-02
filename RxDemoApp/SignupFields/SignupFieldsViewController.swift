@@ -86,7 +86,7 @@ extension SignupFieldsViewController
     
     private func signupButtonState(enable: Bool)
     {
-        buttonSignup.isEnabled = enable
+        buttonSignup.isEnabled = true
     }
     
     private func setupViews()
