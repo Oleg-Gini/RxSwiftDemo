@@ -50,4 +50,22 @@ class NetworkManager: NSObject
             return Disposables.create()
         })
     }
+    
+    static func signUpURLSession() -> Observable<User>
+    {
+        let url     = URL(string: "https://pastebin.com/raw/cBLQVPsS")!
+        let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 30)
+        
+        return URLSession.shared
+            .rx
+            .json(request: request)
+            .retry(3)
+            .filter( { guard let json = $0 as? [String: Any],
+                let _ = json["user"] as? [String:Any] else { return false }; return true })
+            .map({
+                let json = $0 as! [String: Any]
+                return User(dictionary: json["user"] as! [String:Any])
+            })
+        
+    }
 }
