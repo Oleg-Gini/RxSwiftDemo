@@ -27,14 +27,9 @@ class SignUpViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        viewModel.connectSignupField(to: signupFieldsContainer, viewController: self).asObservable().subscribe(onNext: { [weak self] _ in
-            self?.subscribeForSignupFieldsViewControllerEvents()
-        }, onCompleted: {
-            print("onCompleted")
-        }, onDisposed: {
-            print("onDisposed")
-        })
-        .disposed(by: disposeBag)
+        //****Snippet #1 connectSignupField ******
+      
+        
     }
 
     
@@ -45,23 +40,8 @@ extension SignUpViewController
 {
     private func subscribeForSignupFieldsViewControllerEvents()
     {
-        viewModel.signupFields?.buttonSignup.rx.tap
-            .bind
-            {[weak self] in
-                
-                guard let strongSelf = self else { return }
-                
-                _ = strongSelf.viewModel.userSignUp().observeOn(MainScheduler.instance).subscribe(onNext: { [weak self]_ in
-                    self?.userConnected()
-                }, onError: { (error) in
-                    print("SignUpViewController viewModel.userSignUp() error \(error)")
-                }, onCompleted: {
-                    print("SignUpViewController viewModel.userSignUp() onCompleted")
-                }, onDisposed: {
-                    print("SignUpViewController viewModel.userSignUp() onDisposed")
-                })
-            }
-            .disposed(by: viewModel.disposeBag)
+        //****Snippet #2 subscribeForSignupFieldsViewControllerEvents ******
+   
     }
     
     private func userConnected()

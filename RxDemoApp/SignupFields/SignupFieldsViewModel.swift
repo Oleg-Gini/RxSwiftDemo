@@ -36,12 +36,6 @@ class SignupFieldsViewModel: SignupFieldsViewModelProtocol
     
     init()
     {
-        isValid = Observable.combineLatest(password.asObservable(),confirmPassword.asObservable(), email.asObservable()) { password, confirmPassword, email in
-            
-            guard password.count >= 6   else { return false }
-            guard email.isValidEmail    else { return false }
-            
-            return password == confirmPassword
-        }
+        // ****Snippet #10 isValid Observable******
     }
 }
