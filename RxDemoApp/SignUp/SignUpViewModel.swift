@@ -17,28 +17,7 @@ class SignUpViewModel: NSObject
     let disposeBag = DisposeBag()
 
     //****Snippet #3 userSignUp ******
-    func userSignUp() -> Observable<Void>
-    {
-        return Observable.create({ [weak self] observer in
-            
-            guard let strongSelf = self else { return Disposables.create()}
-            
-            UserManager.shared.userSignUp().subscribe(onNext: { (user) in
-                observer.onNext(())
-                observer.onCompleted()
-            }, onError: { (error) in
-                print(error)
-                observer.onCompleted()
-            }, onCompleted: {
-                print("SignUpViewModel userSignUp() onCompleted")
-            }) {
-                print("SignUpViewModel userSignUp() onDisposed")
-                }
-                .disposed(by: strongSelf.disposeBag)
-            
-            return Disposables.create()
-        })
-    }
+
     
     //****Snippet #4 connectSignupField ******
  
