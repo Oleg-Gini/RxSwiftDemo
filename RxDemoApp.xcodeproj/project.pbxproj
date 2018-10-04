@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C096C4F2166299A003CCE3E /* RxTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C096C4E21662999003CCE3E /* RxTableViewViewController.swift */; };
 		7C559678215CFE9600A3363B /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C559677215CFE9600A3363B /* UserProfileViewController.swift */; };
 		7C55967A215CFEB300A3363B /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C559679215CFEB300A3363B /* UserProfileViewModel.swift */; };
 		7C55967C215CFECE00A3363B /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55967B215CFECE00A3363B /* EditProfileViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		0D32D8BB80D94DE580914F5C /* Pods_RxDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C096C4E21662999003CCE3E /* RxTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTableViewViewController.swift; sourceTree = "<group>"; };
 		7C559677215CFE9600A3363B /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		7C559679215CFEB300A3363B /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		7C55967B215CFECE00A3363B /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C096C4D21662945003CCE3E /* TableView+Rx */ = {
+			isa = PBXGroup;
+			children = (
+				7C096C4E21662999003CCE3E /* RxTableViewViewController.swift */,
+			);
+			path = "TableView+Rx";
+			sourceTree = "<group>";
+		};
 		7C559675215CFE7500A3363B /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,13 +152,14 @@
 		7CF4C341215CD92400AB96E3 /* RxDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				7C096C4D21662945003CCE3E /* TableView+Rx */,
 				7CF4C3682165F28500AB96E3 /* CustomRx */,
 				7CF4C35C2163486C00AB96E3 /* EditImage */,
 				7C559690215FE9B800A3363B /* Account */,
-				7C55967F215D013000A3363B /* SignupFields */,
 				7C559676215CFE8200A3363B /* EditProfile */,
 				7C559675215CFE7500A3363B /* UserProfile */,
 				7CF4C359215CE3AC00AB96E3 /* User */,
+				7C55967F215D013000A3363B /* SignupFields */,
 				7CF4C356215CE38700AB96E3 /* SignUp */,
 				7CF4C342215CD92400AB96E3 /* AppDelegate.swift */,
 				7C559684215D04F600A3363B /* Extentions.swift */,
@@ -351,6 +362,7 @@
 				7C55968F215FD4E000A3363B /* UserManager.swift in Sources */,
 				7CF4C345215CD92400AB96E3 /* SignUpViewController.swift in Sources */,
 				7C5596922160134800A3363B /* AccountViewController.swift in Sources */,
+				7C096C4F2166299A003CCE3E /* RxTableViewViewController.swift in Sources */,
 				7C559683215D016900A3363B /* SignupFieldsViewModel.swift in Sources */,
 				7CF4C358215CE3A700AB96E3 /* SignUpViewModel.swift in Sources */,
 				7CF4C360216348BF00AB96E3 /* SetImageViewModel.swift in Sources */,

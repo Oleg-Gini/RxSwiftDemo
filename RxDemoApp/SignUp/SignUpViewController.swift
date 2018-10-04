@@ -13,7 +13,7 @@ import Alamofire
 
 class SignUpViewController: UIViewController
 {
-    private var viewModel = SignUpViewModel()
+    private var viewModel  = SignUpViewModel()
     private let disposeBag = DisposeBag()
     
     @IBOutlet weak var signupFieldsContainer: UIView!
@@ -28,7 +28,14 @@ class SignUpViewController: UIViewController
         super.viewWillAppear(animated)
         
         //****Snippet #1 connectSignupField ******
-      
+        viewModel.connectSignupField(to: signupFieldsContainer, viewController: self).asObservable().subscribe(onNext: { [weak self] _ in
+            self?.subscribeForSignupFieldsViewControllerEvents()
+            }, onCompleted: {
+                print("onCompleted")
+        }, onDisposed: {
+            print("onDisposed")
+        })
+            .disposed(by: disposeBag)
         
     }
 
@@ -41,6 +48,23 @@ extension SignUpViewController
     private func subscribeForSignupFieldsViewControllerEvents()
     {
         //****Snippet #2 subscribeForSignupFieldsViewControllerEvents ******
+        viewModel.signupFields?.buttonSignup.rx.tap
+            .bind
+            {[weak self] in
+                
+                guard let strongSelf = self else { return }
+                
+                _ = strongSelf.viewModel.userSignUp().observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] _ in
+                    self?.userConnected()
+                    }, onError: { (error) in
+                        print("SignUpViewController viewModel.userSignUp() error \(error)")
+                }, onCompleted: {
+                    print("SignUpViewController viewModel.userSignUp() onCompleted")
+                }, onDisposed: {
+                    print("SignUpViewController viewModel.userSignUp() onDisposed")
+                })
+            }
+            .disposed(by: viewModel.disposeBag)
     }
     
     private func userDidConnected()
