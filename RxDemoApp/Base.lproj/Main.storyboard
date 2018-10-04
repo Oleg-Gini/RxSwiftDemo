@@ -112,7 +112,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foe-Kz-dUF">
                                 <rect key="frame" x="0.0" y="50" width="375" height="175"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.4005244006849315" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="XGg-iu-Koi"/>
                                 </constraints>
@@ -195,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0u-dJ-kdd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3120.8000000000002" y="-231.18440779610197"/>
+            <point key="canvasLocation" x="2398" y="154"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="xkY-ey-iF9">
@@ -230,7 +230,7 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pFQ-oN-bAW" firstAttribute="height" secondItem="aHD-0i-7Pu" secondAttribute="height" multiplier="0.158" id="0Vd-cz-3qp"/>
                             <constraint firstItem="rW5-w8-rEc" firstAttribute="top" secondItem="k75-ay-WrC" secondAttribute="top" constant="20" id="3vq-ej-pG0"/>
@@ -253,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YzF-T9-7jG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2450" y="329"/>
+            <point key="canvasLocation" x="2398" y="354"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xDg-lE-GRm">
@@ -336,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zh0-Eu-364" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2423" y="-85"/>
+            <point key="canvasLocation" x="2398" y="-77"/>
         </scene>
     </scenes>
     <resources>

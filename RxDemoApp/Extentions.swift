@@ -17,14 +17,8 @@ extension UIViewController
         child.view.frame = container.bounds
         
         container.addSubview(child.view)
-        
-        container.translatesAutoresizingMaskIntoConstraints = false
-        
-        let      topConstraint = NSLayoutConstraint(item: child.view, attribute: .top     , relatedBy: .equal, toItem: container, attribute: .top     , multiplier: 1.0, constant: 0.0)
-        let   bottomConstraint = NSLayoutConstraint(item: child.view, attribute: .bottom  , relatedBy: .equal, toItem: container, attribute: .bottom  , multiplier: 1.0, constant: 0.0)
-        let  leadingConstraint = NSLayoutConstraint(item: child.view, attribute: .leading , relatedBy: .equal, toItem: container, attribute: .leading , multiplier: 1.0, constant: 0.0)
-        let trailingConstraint = NSLayoutConstraint(item: child.view, attribute: .trailing, relatedBy: .equal, toItem: container, attribute: .trailing, multiplier: 1.0, constant: 0.0)
-        container.addConstraints([topConstraint,bottomConstraint,leadingConstraint,trailingConstraint])
+
+        UIView.addViewConstraints(from: child.view, to: container)
         
         child.didMove(toParent: self)
     }
@@ -95,5 +89,24 @@ extension String
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
+    }
+}
+
+extension UIView
+{
+    static func addViewConstraints(from topLevelView : UIView, to superView : UIView)
+    {
+        topLevelView.constraintFrame(for: superView)
+    }
+    
+    func constraintFrame(for superViewObject: UIView)
+    {
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        let      topConstraint = NSLayoutConstraint(item: self, attribute: .top     , relatedBy: .equal, toItem: superViewObject, attribute: .top     , multiplier: 1.0, constant: 0.0)
+        let   bottomConstraint = NSLayoutConstraint(item: self, attribute: .bottom  , relatedBy: .equal, toItem: superViewObject, attribute: .bottom  , multiplier: 1.0, constant: 0.0)
+        let  leadingConstraint = NSLayoutConstraint(item: self, attribute: .leading , relatedBy: .equal, toItem: superViewObject, attribute: .leading , multiplier: 1.0, constant: 0.0)
+        let trailingConstraint = NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: superViewObject, attribute: .trailing, multiplier: 1.0, constant: 0.0)
+        superViewObject.addConstraints([topConstraint,bottomConstraint,leadingConstraint,trailingConstraint])
     }
 }

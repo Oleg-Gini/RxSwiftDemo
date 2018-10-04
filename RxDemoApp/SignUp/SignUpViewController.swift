@@ -41,13 +41,29 @@ extension SignUpViewController
     private func subscribeForSignupFieldsViewControllerEvents()
     {
         //****Snippet #2 subscribeForSignupFieldsViewControllerEvents ******
-   
+        viewModel.signupFields?.buttonSignup.rx.tap
+            .bind
+            {[weak self] in
+                
+                guard let strongSelf = self else { return }
+                
+                _ = strongSelf.viewModel.userSignUp().observeOn(MainScheduler.instance).subscribe(onNext: { [weak self]_ in
+                    self?.userDidConnected()
+                    }, onError: { (error) in
+                        print("SignUpViewController viewModel.userSignUp() error \(error)")
+                }, onCompleted: {
+                    print("SignUpViewController viewModel.userSignUp() onCompleted")
+                }, onDisposed: {
+                    print("SignUpViewController viewModel.userSignUp() onDisposed")
+                })
+            }
+            .disposed(by: viewModel.disposeBag)
     }
     
-    private func userConnected()
+    private func userDidConnected()
     {
         guard let navigationController = self.navigationController else { return }
-        viewModel.userConnected(navigationController: navigationController)
+        viewModel.showUserProfile(navigationController: navigationController)
     }
 }
 

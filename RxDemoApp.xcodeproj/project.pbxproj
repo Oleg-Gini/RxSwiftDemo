@@ -142,6 +142,7 @@
 		7CF4C341215CD92400AB96E3 /* RxDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				7CF4C3682165F28500AB96E3 /* CustomRx */,
 				7CF4C35C2163486C00AB96E3 /* EditImage */,
 				7C559690215FE9B800A3363B /* Account */,
 				7C55967F215D013000A3363B /* SignupFields */,
@@ -152,12 +153,8 @@
 				7CF4C342215CD92400AB96E3 /* AppDelegate.swift */,
 				7C559684215D04F600A3363B /* Extentions.swift */,
 				7C559686215D17F500A3363B /* Enums.swift */,
-				7CF4C36321634FB400AB96E3 /* UIImagePickerController+Rx.swift */,
-				7CF4C3652163647A00AB96E3 /* RxUnwrapOptional.swift */,
 				7C559688215D209900A3363B /* ViewControllersFactory.swift */,
 				7C55968A215EC43300A3363B /* NetworkManager.swift */,
-				7C55968C215EC53900A3363B /* Alamofire+rx.swift */,
-				7CF4C36121634AA600AB96E3 /* PHPhotoLibrary+rx.swift */,
 				7CF4C346215CD92400AB96E3 /* Main.storyboard */,
 				7CF4C349215CD92600AB96E3 /* Assets.xcassets */,
 				7CF4C34B215CD92600AB96E3 /* LaunchScreen.storyboard */,
@@ -191,6 +188,17 @@
 				7CF4C35F216348BF00AB96E3 /* SetImageViewModel.swift */,
 			);
 			path = EditImage;
+			sourceTree = "<group>";
+		};
+		7CF4C3682165F28500AB96E3 /* CustomRx */ = {
+			isa = PBXGroup;
+			children = (
+				7CF4C36121634AA600AB96E3 /* PHPhotoLibrary+rx.swift */,
+				7C55968C215EC53900A3363B /* Alamofire+rx.swift */,
+				7CF4C3652163647A00AB96E3 /* RxUnwrapOptional.swift */,
+				7CF4C36321634FB400AB96E3 /* UIImagePickerController+Rx.swift */,
+			);
+			path = CustomRx;
 			sourceTree = "<group>";
 		};
 		81FCEF9426CAC74CF2BCB03E /* Frameworks */ = {
